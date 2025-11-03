@@ -13,8 +13,8 @@
         /* Alap beállítások és betűtípus */
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #e9ecef; /* Nagyon világos szürke háttér */
-            color: #343a40; /* Sötét szöveg */
+            background-color: #e9ecef;
+            color: #343a40;
             display: flex;
             flex-direction: column; 
             justify-content: space-between;
@@ -40,7 +40,7 @@
             padding: 60px 40px;
             border-radius: 15px; 
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
-            max-width: 750px; /* Kissé szélesebb lett a leírás miatt */
+            max-width: 750px;
             width: 90%;
         }
 
@@ -88,20 +88,27 @@
             border-top: 1px solid #dee2e6;
             font-size: 0.9em;
         }
-        
+
         /* Technológiai ikonok stílusa */
         .tech-icons {
             margin-top: 10px;
-            font-size: 2em; /* Ikonok mérete */
+            margin-bottom: 15px;
+            font-size: 2em; 
         }
         
         .tech-icons i {
             margin: 0 10px;
-            /* Ikonok színe a technológiákhoz illően */
+            /* Hover effektus */
+            transition: color 0.3s ease;
         }
+
+        /* Egyedi színek a technológiák jelölésére */
         .tech-icons .fa-html5 { color: #e34c26; }
         .tech-icons .fa-css3-alt { color: #2965f1; }
-        .tech-icons .fa-js { color: #f0db4f; }
+        .tech-icons .fa-code { color: #6a1b9a; } /* C# */
+        .tech-icons .fa-server { color: #0078d4; } /* Windows Server */
+        .tech-icons .fa-terminal { color: #0078d4; } /* PowerShell */
+        .tech-icons .fa-box-open { color: #8e24aa; } /* Chocolatey */
 
         footer a {
             color: #17a2b8;
@@ -134,10 +141,14 @@
     </div>
 
     <footer>
+        <p>A fejlesztés alapját képező technológiák:</p>
         <div class="tech-icons">
             <i class="fab fa-html5" title="HTML5"></i>
             <i class="fab fa-css3-alt" title="CSS3"></i>
-            <i class="fab fa-js" title="JavaScript"></i>
+            <i class="fas fa-code" title="C#"></i> 
+            <i class="fas fa-server" title="Windows Server"></i>
+            <i class="fas fa-terminal" title="PowerShell"></i>
+            <i class="fas fa-box-open" title="Chocolatey"></i>
         </div>
         <p>Kérdés esetén írjon nekünk:</p>
         <p><a href="mailto:csipai.gergo2@gmail.com">csipai.gergo2@gmail.com</a></p>
