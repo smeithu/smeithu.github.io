@@ -7,6 +7,8 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         /* Alap beállítások és betűtípus */
         body {
@@ -14,17 +16,17 @@
             background-color: #e9ecef; /* Nagyon világos szürke háttér */
             color: #343a40; /* Sötét szöveg */
             display: flex;
-            flex-direction: column; /* Tartalom és lábléc egymás alatt */
+            flex-direction: column; 
             justify-content: space-between;
             align-items: center;
-            min-height: 100vh; /* Teljes képernyő magasság */
+            min-height: 100vh;
             margin: 0;
             text-align: center;
         }
 
         /* Fő tartalom doboza (konténer) */
         .container {
-            flex-grow: 1; /* Hogy a lábléc alul maradjon */
+            flex-grow: 1; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -34,33 +36,41 @@
         }
 
         .content-box {
-            background-color: #ffffff; /* Fehér doboz */
+            background-color: #ffffff; 
             padding: 60px 40px;
-            border-radius: 15px; /* Lekerekített sarkok */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Elegáns árnyék */
-            max-width: 700px;
+            border-radius: 15px; 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+            max-width: 750px; /* Kissé szélesebb lett a leírás miatt */
             width: 90%;
         }
 
         /* Cím (SMEITHu) */
         h1 {
-            color: #17a2b8; /* Cián kék, modern szín */
+            color: #17a2b8;
             font-size: 4em;
             margin-bottom: 10px;
             font-weight: 700;
+        }
+        
+        /* Cél leírása */
+        .purpose {
+            font-size: 1.1em;
+            color: #495057;
+            margin-top: 15px;
+            font-style: italic;
         }
 
         /* Státusz jelző */
         .status {
             font-size: 1.8em;
             font-weight: bold;
-            color: #ffc107; /* Sárga, feltűnő szín */
+            color: #ffc107; 
             border: 3px solid #ffc107;
             padding: 15px 30px;
             display: inline-block;
             border-radius: 50px;
             margin-top: 25px;
-            animation: bounce 2s infinite ease-in-out; /* Animáció */
+            animation: bounce 2s infinite ease-in-out; 
         }
         
         p {
@@ -73,11 +83,25 @@
         footer {
             width: 100%;
             padding: 20px 0;
-            background-color: #f8f9fa; /* Nagyon világos szürke háttér */
+            background-color: #f8f9fa; 
             color: #6c757d;
             border-top: 1px solid #dee2e6;
             font-size: 0.9em;
         }
+        
+        /* Technológiai ikonok stílusa */
+        .tech-icons {
+            margin-top: 10px;
+            font-size: 2em; /* Ikonok mérete */
+        }
+        
+        .tech-icons i {
+            margin: 0 10px;
+            /* Ikonok színe a technológiákhoz illően */
+        }
+        .tech-icons .fa-html5 { color: #e34c26; }
+        .tech-icons .fa-css3-alt { color: #2965f1; }
+        .tech-icons .fa-js { color: #f0db4f; }
 
         footer a {
             color: #17a2b8;
@@ -91,7 +115,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-5px); /* Enyhe mozgás felfelé */
+                transform: translateY(-5px);
             }
         }
     </style>
@@ -102,11 +126,19 @@
         <div class="content-box">
             <h1>SMEITHu</h1>
             <p><strong>Izgatottan várjuk, hogy bemutathassuk az új weboldalunkat!</strong> Jelenleg az utolsó simításokat végezzük a felhasználói élmény tökéletesítésén.</p>
+            
+            <p class="purpose">Oldalunk **kisvállalati és oktatási környezetre szánt megoldásokat** fog tartalmazni.</p>
+            
             <div class="status">FEJLESZTÉS ALATT</div>
         </div>
     </div>
 
     <footer>
+        <div class="tech-icons">
+            <i class="fab fa-html5" title="HTML5"></i>
+            <i class="fab fa-css3-alt" title="CSS3"></i>
+            <i class="fab fa-js" title="JavaScript"></i>
+        </div>
         <p>Kérdés esetén írjon nekünk:</p>
         <p><a href="mailto:csipai.gergo2@gmail.com">csipai.gergo2@gmail.com</a></p>
         <p>&copy; 2025 SMEITHu. Minden jog fenntartva.</p>
