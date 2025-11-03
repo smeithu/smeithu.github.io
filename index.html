@@ -3,61 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMEITHu - Fejlesztés alatt</title>
+    <title>SMEITHu | Fejlesztés Alatt</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* A CSS kód a stílusért felel */
+        /* Alap beállítások és betűtípus */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9; /* Világos háttér */
-            color: #333; /* Sötét szöveg */
+            font-family: 'Montserrat', sans-serif;
+            background-color: #e9ecef; /* Nagyon világos szürke háttér */
+            color: #343a40; /* Sötét szöveg */
             display: flex;
-            justify-content: center; /* Vízszintesen középre */
-            align-items: center; /* Függőlegesen középre */
-            height: 100vh; /* Teljes képernyő magasság */
+            flex-direction: column; /* Tartalom és lábléc egymás alatt */
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh; /* Teljes képernyő magasság */
             margin: 0;
             text-align: center;
         }
 
+        /* Fő tartalom doboza (konténer) */
         .container {
-            padding: 40px;
-            background-color: #ffffff; /* Fehér doboz háttér */
-            border-radius: 12px; /* Lekerekített sarkok */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enyhe árnyék */
-            max-width: 600px;
+            flex-grow: 1; /* Hogy a lábléc alul maradjon */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .content-box {
+            background-color: #ffffff; /* Fehér doboz */
+            padding: 60px 40px;
+            border-radius: 15px; /* Lekerekített sarkok */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Elegáns árnyék */
+            max-width: 700px;
             width: 90%;
         }
 
+        /* Cím (SMEITHu) */
         h1 {
-            color: #007bff; /* Kék szín a címnek (kiemelés) */
-            font-size: 3em;
+            color: #17a2b8; /* Cián kék, modern szín */
+            font-size: 4em;
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
+        /* Státusz jelző */
+        .status {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ffc107; /* Sárga, feltűnő szín */
+            border: 3px solid #ffc107;
+            padding: 15px 30px;
+            display: inline-block;
+            border-radius: 50px;
+            margin-top: 25px;
+            animation: bounce 2s infinite ease-in-out; /* Animáció */
+        }
+        
         p {
             font-size: 1.2em;
-            color: #666;
-            margin-top: 0;
-            margin-bottom: 30px;
+            color: #6c757d;
+            margin-top: 20px;
+        }
+        
+        /* Lábléc */
+        footer {
+            width: 100%;
+            padding: 20px 0;
+            background-color: #f8f9fa; /* Nagyon világos szürke háttér */
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            font-size: 0.9em;
         }
 
-        .status {
-            font-size: 1.5em;
+        footer a {
+            color: #17a2b8;
+            text-decoration: none;
             font-weight: bold;
-            color: #ffc107; /* Narancssárga/sárga a státusznak */
-            border: 2px solid #ffc107;
-            padding: 10px 20px;
-            display: inline-block;
-            border-radius: 8px;
-            animation: pulse 1.5s infinite alternate; /* Animáció */
         }
-
-        /* Egyszerű pulzáló animáció */
-        @keyframes pulse {
-            from {
-                opacity: 1;
+        
+        /* Animáció */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
             }
-            to {
-                opacity: 0.7;
+            50% {
+                transform: translateY(-5px); /* Enyhe mozgás felfelé */
             }
         }
     </style>
@@ -65,10 +99,18 @@
 <body>
 
     <div class="container">
-        <h1>SMEITHu</h1>
-        <p>Hamarosan itt találod az új és fejlesztett weboldalunkat!</p>
-        <div class="status">Fejlesztés alatt</div>
+        <div class="content-box">
+            <h1>SMEITHu</h1>
+            <p><strong>Izgatottan várjuk, hogy bemutathassuk az új weboldalunkat!</strong> Jelenleg az utolsó simításokat végezzük a felhasználói élmény tökéletesítésén.</p>
+            <div class="status">FEJLESZTÉS ALATT</div>
+        </div>
     </div>
+
+    <footer>
+        <p>Kérdés esetén írjon nekünk:</p>
+        <p><a href="mailto:csipai.gergo2@gmail.com">csipai.gergo2@gmail.com</a></p>
+        <p>&copy; 2025 SMEITHu. Minden jog fenntartva.</p>
+    </footer>
 
 </body>
 </html>
