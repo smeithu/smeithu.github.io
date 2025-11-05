@@ -31,11 +31,11 @@
             margin: 0;
             text-align: center;
             
-            /* ÚJ DESIGN ELEM: Áramköri Mintázat */
+            /* DESIGN ELEM: Áramköri Mintázat */
             background-image: 
-                repeating-linear-gradient(0deg, var(--color-dark-blue), var(--color-dark-blue) 19px, rgba(0, 163, 255, 0.1) 20px), /* Vízszintes vonalak (nagyon halvány ciánkék) */
-                repeating-linear-gradient(90deg, var(--color-dark-blue), var(--color-dark-blue) 19px, rgba(0, 163, 255, 0.1) 20px); /* Függőleges vonalak */
-            background-size: 20px 20px; /* A rács mérete */
+                repeating-linear-gradient(0deg, var(--color-dark-blue), var(--color-dark-blue) 19px, rgba(0, 163, 255, 0.1) 20px), 
+                repeating-linear-gradient(90deg, var(--color-dark-blue), var(--color-dark-blue) 19px, rgba(0, 163, 255, 0.1) 20px);
+            background-size: 20px 20px;
         }
 
         /* Fő tartalom doboza (konténer) */
@@ -59,12 +59,12 @@
             width: 90%;
             color: #343a40; 
             animation: pulse-shadow 3s infinite alternate ease-in-out; 
-            z-index: 10; /* Biztosítja, hogy a fő doboz a háttér felett legyen */
+            z-index: 10;
         }
 
-        /* LOGÓ stílusa */
+        /* LOGÓ stílusa: MÉRET NÖVELVE 180px-re */
         .logo {
-            width: 150px; 
+            width: 180px; 
             height: auto;
             margin-bottom: 20px;
         }
@@ -141,15 +141,15 @@
             margin-top: 20px;
         }
         
-        /* LÁBLÉC: Egyszerű, kontrasztos elválasztóval */
+        /* LÁBLÉC: 5px vastag neon-zöld elválasztóval */
         footer {
             width: 100%;
             padding: 20px 0;
             background-color: var(--color-dark-blue); 
             color: var(--color-white); 
             
-            /* JAVÍTOTT ELVÁLASZTÓ VONAL */
-            border-top: 3px solid var(--color-neon-green); 
+            /* JAVÍTOTT ELVÁLASZTÓ VONAL: 5px vastag */
+            border-top: 5px solid var(--color-neon-green); 
             box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.5); 
             
             font-size: 0.9em;
@@ -221,7 +221,7 @@
                 <div class="github-box">
                     <a href="https://github.com/smeithu/windows-server-25-tools" target="_blank">
                         <i class="fab fa-github"></i> 
-                        Windows Server 25 Tools Tároló
+                        Windows Server 2025 Tools Tároló
                     </a>
                 </div>
                 
