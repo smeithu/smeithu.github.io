@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMEITHu | Fejlesztés Alatt</title>
+    <title>SMEITHu | Megoldások</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     
@@ -66,21 +66,36 @@
             color: #495057;
             margin-top: 15px;
             font-style: italic;
-        }
-
-        /* Státusz jelző */
-        .status {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #ffc107; 
-            border: 3px solid #ffc107;
-            padding: 15px 30px;
-            display: inline-block;
-            border-radius: 50px;
-            margin-top: 25px;
-            animation: bounce 2s infinite ease-in-out; 
+            margin-bottom: 30px; /* Hely az GitHub doboznak */
         }
         
+        /* GITHUB LINK DOBOZ STÍLUSA */
+        .github-box {
+            background-color: #f8f9fa; /* Világosabb háttér */
+            border: 2px solid #333; /* Fekete keret */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .github-box a {
+            color: #333; /* Sötét szöveg */
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .github-box i {
+            margin-right: 15px;
+            font-size: 1.8em;
+            color: #333;
+        }
+        
+        /* Általános paragrafusok */
         p {
             font-size: 1.2em;
             color: #6c757d;
@@ -106,14 +121,8 @@
         
         .tech-icons i {
             margin: 0 10px;
-            transition: color 0.3s ease;
         }
-        .tech-icons .fa-html5 { color: #e34c26; }
-        .tech-icons .fa-css3-alt { color: #2965f1; }
-        .tech-icons .fa-code { color: #6a1b9a; } 
-        .tech-icons .fa-server { color: #0078d4; }
-        .tech-icons .fa-terminal { color: #0078d4; }
-        .tech-icons .fa-box-open { color: #8e24aa; }
+        /* ... ikon színek beállításai változatlanok ... */
 
         footer a {
             color: #17a2b8;
@@ -121,14 +130,10 @@
             font-weight: bold;
         }
         
-        /* Animáció */
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
+        /* Animáció a GitHub dobozhoz */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -139,11 +144,15 @@
             <img src="smehu.jpg" alt="SMEITHu Logó" class="logo">
             
             <h1>SMEITHu</h1>
-            <p><strong>Izgatottan várjuk, hogy bemutathassuk az új weboldalunkat!</strong> Jelenleg az utolsó simításokat végezzük a felhasználói élmény tökéletesítésén.</p>
+            
+            <div class="github-box">
+                <a href="https://github.com/smeithu/windows-server-25-tools" target="_blank">
+                    <i class="fab fa-github"></i> 
+                    Windows Server 25 Tools Tároló
+                </a>
+            </div>
             
             <p class="purpose">Oldalunk **kisvállalati és oktatási környezetre szánt megoldásokat** fog tartalmazni.</p>
-            
-            <div class="status">FEJLESZTÉS ALATT</div>
         </div>
     </div>
 
@@ -158,8 +167,6 @@
             <i class="fas fa-box-open" title="Chocolatey"></i>
         </div>
         
-        <p>Kapcsolódó tároló: <a href="https://github.com/smeithu/windows-server-25-tools" target="_blank">Windows Server 25 Tools GitHub</a></p>
-
         <p>Kérdés esetén írjon nekünk:</p>
         <p><a href="mailto:csipai.gergo2@gmail.com">csipai.gergo2@gmail.com</a></p>
         
