@@ -10,11 +10,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+        /* SZÍNKÓDOK DEFINÍCIÓJA */
+        :root {
+            --color-dark-blue: #083262; /* Fő Alapszín */
+            --color-neon-green: #33FF33; /* Kiemelő Szín */
+            --color-cyan-blue: #00A3FF; /* Másodlagos Kiemelő */
+            --color-white: #FFFFFF; /* Szöveg/Ikonok */
+            /* A belső áramkör színét nem alkalmazzuk a CSS-ben, mert az a logón belüli szín. */
+        }
+
         /* Alap beállítások */
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #e9ecef;
-            color: #343a40;
+            background-color: var(--color-dark-blue); /* SÖTÉTKÉK HÁTTÉR */
+            color: var(--color-white); /* FEHÉR SZÖVEG */
             display: flex;
             flex-direction: column; 
             justify-content: space-between;
@@ -36,12 +45,13 @@
         }
 
         .content-box {
-            background-color: #ffffff; 
+            background-color: var(--color-white); /* Fehér háttér a logó kiemeléséhez */
             padding: 60px 40px;
             border-radius: 15px; 
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Erős árnyék a sötét háttéren */
             max-width: 750px;
             width: 90%;
+            color: #343a40; /* Fekete szöveg a konténeren belül */
         }
 
         /* LOGÓ stílusa */
@@ -53,7 +63,7 @@
 
         /* Cím (SMEITHu) */
         h1 {
-            color: #17a2b8;
+            color: var(--color-neon-green); /* NEON-ZÖLD KIEMELÉS */
             font-size: 4em;
             margin-top: 0; 
             margin-bottom: 10px;
@@ -63,7 +73,7 @@
         /* Cél leírása */
         .purpose {
             font-size: 1.1em;
-            color: #495057;
+            color: #495057; /* Sötétszürke a fehér dobozon */
             margin-top: 15px;
             font-style: italic;
             margin-bottom: 30px; 
@@ -71,8 +81,8 @@
         
         /* GITHUB LINK DOBOZ STÍLUSA */
         .github-box {
-            background-color: #f8f9fa; 
-            border: 1px solid #dee2e6;
+            background-color: var(--color-dark-blue); /* SÖTÉTKÉK DOBoz */
+            border: 1px solid var(--color-cyan-blue); /* CIÁNKÉK KERET */
             padding: 10px 20px;
             border-radius: 8px;
             display: inline-block;
@@ -81,7 +91,7 @@
         }
 
         .github-box a {
-            color: #495057; 
+            color: var(--color-white); /* FEHÉR SZÖVEG */
             font-size: 1.1em;
             font-weight: 600;
             text-decoration: none;
@@ -92,13 +102,13 @@
         .github-box i {
             margin-right: 10px;
             font-size: 1.3em;
-            color: #333;
+            color: var(--color-neon-green); /* NEON-ZÖLD IKON */
         }
         
-        /* Általános paragrafusok */
+        /* Általános paragrafusok a fő dobozon kívül (láblécben) */
         p {
             font-size: 1.2em;
-            color: #6c757d;
+            color: var(--color-white); /* FEHÉR SZÖVEG */
             margin-top: 20px;
         }
         
@@ -106,9 +116,9 @@
         footer {
             width: 100%;
             padding: 20px 0;
-            background-color: #f8f9fa; 
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
+            background-color: var(--color-dark-blue); /* SÖTÉTKÉK HÁTTÉR */
+            color: var(--color-white); 
+            border-top: 1px solid var(--color-cyan-blue); /* CIÁNKÉK ELVÁLASZTÓ */
             font-size: 0.9em;
         }
 
@@ -128,14 +138,13 @@
         .tech-icons i {
             margin: 8px; 
             transition: color 0.3s ease;
-            /* AZ EGYSÉGES SZÍN BEÁLLÍTÁSA: Sötétszürke */
-            color: #495057 !important; 
+            /* FEHÉR IKONOK (Egységes) */
+            color: var(--color-white) !important; 
         }
         
-        /* Eltávolítottam az egyedi színbeállításokat, mivel felülírjuk őket a fenti !important-tal. */
-
+        /* Linkek láblécben */
         footer a {
-            color: #17a2b8;
+            color: var(--color-neon-green); /* NEON-ZÖLD LINK */
             text-decoration: none;
             font-weight: bold;
         }
