@@ -16,14 +16,13 @@
             --color-neon-green: #33FF33; /* Kiemelő Szín */
             --color-cyan-blue: #00A3FF; /* Másodlagos Kiemelő */
             --color-white: #FFFFFF; /* Szöveg/Ikonok */
-            /* A belső áramkör színét nem alkalmazzuk a CSS-ben, mert az a logón belüli szín. */
         }
 
         /* Alap beállítások */
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--color-dark-blue); /* SÖTÉTKÉK HÁTTÉR */
-            color: var(--color-white); /* FEHÉR SZÖVEG */
+            background-color: var(--color-dark-blue);
+            color: var(--color-white);
             display: flex;
             flex-direction: column; 
             justify-content: space-between;
@@ -45,13 +44,15 @@
         }
 
         .content-box {
-            background-color: var(--color-white); /* Fehér háttér a logó kiemeléséhez */
+            background-color: var(--color-white); 
             padding: 60px 40px;
             border-radius: 15px; 
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Erős árnyék a sötét háttéren */
+            /* Kezdeti árnyék és Pulzáló effektus */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(51, 255, 51, 0.5); 
             max-width: 750px;
             width: 90%;
-            color: #343a40; /* Fekete szöveg a konténeren belül */
+            color: #343a40; 
+            animation: pulse-shadow 3s infinite alternate ease-in-out; /* Pulzálás animáció */
         }
 
         /* LOGÓ stílusa */
@@ -63,7 +64,7 @@
 
         /* Cím (SMEITHu) */
         h1 {
-            color: var(--color-neon-green); /* NEON-ZÖLD KIEMELÉS */
+            color: var(--color-neon-green);
             font-size: 4em;
             margin-top: 0; 
             margin-bottom: 10px;
@@ -73,7 +74,7 @@
         /* Cél leírása */
         .purpose {
             font-size: 1.1em;
-            color: #495057; /* Sötétszürke a fehér dobozon */
+            color: #495057; 
             margin-top: 15px;
             font-style: italic;
             margin-bottom: 30px; 
@@ -81,17 +82,24 @@
         
         /* GITHUB LINK DOBOZ STÍLUSA */
         .github-box {
-            background-color: var(--color-dark-blue); /* SÖTÉTKÉK DOBoz */
-            border: 1px solid var(--color-cyan-blue); /* CIÁNKÉK KERET */
+            background-color: var(--color-dark-blue); 
+            border: 1px solid var(--color-cyan-blue); 
             padding: 10px 20px;
             border-radius: 8px;
             display: inline-block;
             margin-top: 15px;
-            animation: fadeIn 1s ease-out;
+            transition: all 0.3s; /* Sima átmenet */
+        }
+        
+        /* Hover effektus a GitHub dobozon */
+        .github-box:hover {
+            background-color: var(--color-neon-green);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--color-neon-green);
         }
 
         .github-box a {
-            color: var(--color-white); /* FEHÉR SZÖVEG */
+            color: var(--color-white);
             font-size: 1.1em;
             font-weight: 600;
             text-decoration: none;
@@ -102,13 +110,18 @@
         .github-box i {
             margin-right: 10px;
             font-size: 1.3em;
-            color: var(--color-neon-green); /* NEON-ZÖLD IKON */
+            color: var(--color-neon-green); 
+            transition: color 0.3s;
         }
         
-        /* Általános paragrafusok a fő dobozon kívül (láblécben) */
+        /* A GitHub doboz link szövegének és ikonjának színe a hover alatt */
+        .github-box:hover a, .github-box:hover i {
+            color: var(--color-dark-blue);
+        }
+        
         p {
             font-size: 1.2em;
-            color: var(--color-white); /* FEHÉR SZÖVEG */
+            color: var(--color-white); 
             margin-top: 20px;
         }
         
@@ -116,9 +129,9 @@
         footer {
             width: 100%;
             padding: 20px 0;
-            background-color: var(--color-dark-blue); /* SÖTÉTKÉK HÁTTÉR */
+            background-color: var(--color-dark-blue); 
             color: var(--color-white); 
-            border-top: 1px solid var(--color-cyan-blue); /* CIÁNKÉK ELVÁLASZTÓ */
+            border-top: 1px solid var(--color-cyan-blue); 
             font-size: 0.9em;
         }
 
@@ -137,22 +150,43 @@
         
         .tech-icons i {
             margin: 8px; 
-            transition: color 0.3s ease;
-            /* FEHÉR IKONOK (Egységes) */
+            transition: color 0.3s, transform 0.3s;
             color: var(--color-white) !important; 
+        }
+        
+        /* Ikon kiemelése lebegtetésre (hover) */
+        .tech-icons i:hover {
+            color: var(--color-neon-green) !important; 
+            transform: scale(1.2); 
         }
         
         /* Linkek láblécben */
         footer a {
-            color: var(--color-neon-green); /* NEON-ZÖLD LINK */
+            color: var(--color-neon-green);
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
         }
         
-        /* Animáció */
+        /* Link hover effektus */
+        footer a:hover {
+            color: var(--color-cyan-blue); 
+        }
+        
+        /* Animációk */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Fődoboz pulzálása */
+        @keyframes pulse-shadow {
+            0% {
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(51, 255, 51, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 20px 5px rgba(51, 255, 51, 0.8);
+            }
         }
     </style>
 </head>
@@ -181,12 +215,12 @@
             <i class="fab fa-html5" title="HTML5"></i>
             <i class="fab fa-css3-alt" title="CSS3"></i>
             <i class="fas fa-code" title="C#"></i> 
-            <i class="fas fa-server" title="Windows Server"></i>
+            <i class="fas fa-laptop-code" title="Visual Studio 2022"></i> <i class="fas fa-server" title="Windows Server"></i>
             <i class="fas fa-terminal" title="PowerShell"></i>
             <i class="fab fa-ubuntu" title="Ubuntu"></i>
             <i class="fas fa-box-open" title="Chocolatey"></i>
             <i class="fab fa-docker" title="Docker"></i> 
-            <i class="fas fa-box" title="Podman"></i>
+            <i class="fas fa-box" title="Podman (Konténer technológia)"></i>
         </div>
         
         <p>Kérdés esetén írjon nekünk:</p>
