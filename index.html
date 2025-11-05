@@ -66,32 +66,32 @@
             color: #495057;
             margin-top: 15px;
             font-style: italic;
-            margin-bottom: 30px; /* Hely az GitHub doboznak */
+            margin-bottom: 30px; 
         }
         
         /* GITHUB LINK DOBOZ STÍLUSA */
         .github-box {
-            background-color: #f8f9fa; /* Világosabb háttér */
-            border: 2px solid #333; /* Fekete keret */
-            padding: 20px;
-            border-radius: 10px;
+            background-color: #f8f9fa; 
+            border: 1px solid #dee2e6;
+            padding: 10px 20px;
+            border-radius: 8px;
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
             animation: fadeIn 1s ease-out;
         }
 
         .github-box a {
-            color: #333; /* Sötét szöveg */
-            font-size: 1.5em;
-            font-weight: bold;
+            color: #495057; 
+            font-size: 1.1em;
+            font-weight: 600;
             text-decoration: none;
             display: flex;
             align-items: center;
         }
         
         .github-box i {
-            margin-right: 15px;
-            font-size: 1.8em;
+            margin-right: 10px;
+            font-size: 1.3em;
             color: #333;
         }
         
@@ -117,12 +117,22 @@
             margin-top: 10px;
             margin-bottom: 15px;
             font-size: 2em; 
+            display: flex; 
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .tech-icons i {
-            margin: 0 10px;
+            margin: 8px; 
+            transition: color 0.3s ease;
+            /* AZ EGYSÉGES SZÍN BEÁLLÍTÁSA: Sötétszürke */
+            color: #495057 !important; 
         }
-        /* ... ikon színek beállításai változatlanok ... */
+        
+        /* Eltávolítottam az egyedi színbeállításokat, mivel felülírjuk őket a fenti !important-tal. */
 
         footer a {
             color: #17a2b8;
@@ -130,7 +140,7 @@
             font-weight: bold;
         }
         
-        /* Animáció a GitHub dobozhoz */
+        /* Animáció */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -164,7 +174,10 @@
             <i class="fas fa-code" title="C#"></i> 
             <i class="fas fa-server" title="Windows Server"></i>
             <i class="fas fa-terminal" title="PowerShell"></i>
+            <i class="fab fa-ubuntu" title="Ubuntu"></i>
             <i class="fas fa-box-open" title="Chocolatey"></i>
+            <i class="fab fa-docker" title="Docker"></i> 
+            <i class="fas fa-box" title="Podman"></i>
         </div>
         
         <p>Kérdés esetén írjon nekünk:</p>
