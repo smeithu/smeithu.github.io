@@ -30,6 +30,12 @@
             min-height: 100vh;
             margin: 0;
             text-align: center;
+            
+            /* ÚJ DESIGN ELEM: Áramköri Mintázat */
+            background-image: 
+                repeating-linear-gradient(0deg, var(--color-dark-blue), var(--color-dark-blue) 19px, rgba(0, 163, 255, 0.1) 20px), /* Vízszintes vonalak (nagyon halvány ciánkék) */
+                repeating-linear-gradient(90deg, var(--color-dark-blue), var(--color-dark-blue) 19px, rgba(0, 163, 255, 0.1) 20px); /* Függőleges vonalak */
+            background-size: 20px 20px; /* A rács mérete */
         }
 
         /* Fő tartalom doboza (konténer) */
@@ -47,12 +53,13 @@
             background-color: var(--color-white); 
             padding: 60px 40px;
             border-radius: 15px; 
-            /* Kezdeti árnyék és Pulzáló effektus */
+            /* Pulzáló árnyék effektus */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(51, 255, 51, 0.5); 
             max-width: 750px;
             width: 90%;
             color: #343a40; 
             animation: pulse-shadow 3s infinite alternate ease-in-out; 
+            z-index: 10; /* Biztosítja, hogy a fő doboz a háttér felett legyen */
         }
 
         /* LOGÓ stílusa */
@@ -79,15 +86,24 @@
             font-style: italic;
             margin-bottom: 30px; 
         }
+
+        /* TÖBB GITHUB LINKET TARTALMAZÓ KONTÉNER */
+        .github-links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
         
-        /* GITHUB LINK DOBOZ STÍLUSA */
+        /* EGYEDI GITHUB LINK DOBOZ STÍLUSA */
         .github-box {
             background-color: var(--color-dark-blue); 
             border: 1px solid var(--color-cyan-blue); 
             padding: 10px 20px;
             border-radius: 8px;
-            display: inline-block;
-            margin-top: 15px;
+            display: inline-flex;
             transition: all 0.3s; 
         }
         
@@ -125,25 +141,19 @@
             margin-top: 20px;
         }
         
-        /* Lábléc */
+        /* LÁBLÉC: Egyszerű, kontrasztos elválasztóval */
         footer {
             width: 100%;
             padding: 20px 0;
             background-color: var(--color-dark-blue); 
             color: var(--color-white); 
             
-            /* FUTÓFÉNY ELVÁLASZTÓ LÉTREHOZÁSA */
-            border-top: none; 
-            box-shadow: 0 -1px 15px -5px var(--color-cyan-blue); 
-            background: linear-gradient(to right, 
-                        rgba(51, 255, 51, 0) 0%, 
-                        var(--color-neon-green) 50%, 
-                        rgba(51, 255, 51, 0) 100%),
-                        var(--color-dark-blue); 
-            background-size: 200% 100%; 
-            animation: scan-line 5s infinite linear; 
+            /* JAVÍTOTT ELVÁLASZTÓ VONAL */
+            border-top: 3px solid var(--color-neon-green); 
+            box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.5); 
             
             font-size: 0.9em;
+            z-index: 10;
         }
 
         /* Technológiai ikonok stílusa */
@@ -154,7 +164,7 @@
             display: flex; 
             justify-content: center;
             flex-wrap: wrap;
-            max-width: 600px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -184,11 +194,7 @@
             color: var(--color-cyan-blue); 
         }
         
-        /* Animációk */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* ANIMÁCIÓK */
 
         /* Fődoboz pulzálása */
         @keyframes pulse-shadow {
@@ -199,35 +205,33 @@
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 20px 5px rgba(51, 255, 51, 0.8);
             }
         }
-        
-        /* Futófény animációja */
-        @keyframes scan-line {
-            0% {
-                background-position: 100% 0; 
-            }
-            100% {
-                background-position: -100% 0; 
-            }
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="content-box">
-            
             <img src="smehu.jpg" alt="SMEITHu Logó" class="logo">
             
             <h1>SMEITHu</h1>
             
-            <div class="github-box">
-                <a href="https://github.com/smeithu/windows-server-25-tools" target="_blank">
-                    <i class="fab fa-github"></i> 
-                    Windows Server 25 Tools Tároló
-                </a>
-            </div>
-            
             <p class="purpose">Oldalunk **kisvállalati és oktatási környezetre szánt megoldásokat** fog tartalmazni.</p>
+            
+            <div class="github-links-container">
+                <div class="github-box">
+                    <a href="https://github.com/smeithu/windows-server-25-tools" target="_blank">
+                        <i class="fab fa-github"></i> 
+                        Windows Server 25 Tools Tároló
+                    </a>
+                </div>
+                
+                <div class="github-box">
+                    <a href="https://github.com/smeithu/ubuntu-server-lts-tools" target="_blank">
+                        <i class="fab fa-github"></i> 
+                        Ubuntu Server LTS Tools Tároló
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
