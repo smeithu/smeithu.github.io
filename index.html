@@ -16,6 +16,7 @@
             --color-ubuntu-orange: #E95420; /* Kiemelő Szín (Róka Narancs) */
             --color-white: #FFFFFF; /* Szöveg/Ikonok és Fő Doboz Háttér */
             --color-light-gray: #f8f9fa; /* Chatbox háttér */
+            --color-dark-text: #343a40; /* Sötét szöveg */
         }
 
         /* Alap beállítások */
@@ -50,7 +51,6 @@
         }
 
         .content-box {
-            /* VISSZAÁLLÍTVA: A fő doboz háttere FEHÉR */
             background-color: var(--color-white); 
             padding: 60px 40px;
             border-radius: 15px; 
@@ -58,12 +58,12 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(233, 84, 32, 0.5); 
             max-width: 750px;
             width: 90%;
-            color: #343a40; /* Sötét szöveg a fehér háttéren */
+            color: var(--color-dark-text); /* Sötét szöveg a fehér háttéren */
             animation: pulse-shadow 3s infinite alternate ease-in-out; 
             z-index: 10;
         }
 
-        /* LOGÓ stílusa: MÉRET 180px */
+        /* LOGÓ stílusa */
         .logo {
             width: 180px; 
             height: auto;
@@ -88,7 +88,7 @@
             margin-bottom: 30px; 
         }
 
-        /* TÖBB GITHUB LINKET TARTALMAZÓ KONTÉNER */
+        /* GITHUB LINK KONTÉNER */
         .github-links-container {
             display: flex;
             flex-wrap: wrap;
@@ -142,7 +142,7 @@
             margin-top: 20px;
         }
         
-        /* LÁBLÉC: 5px vastag narancs elválasztóval */
+        /* LÁBLÉC */
         footer {
             width: 100%;
             padding: 20px 0;
@@ -157,15 +157,15 @@
             z-index: 10;
         }
 
-        /* Technológiai ikonok stílusa (Igazítva) */
+        /* Technológiai ikonok stílusa */
         .tech-icons {
             margin-top: 10px;
             margin-bottom: 15px;
             font-size: 2em; 
             display: flex; 
             justify-content: center; 
-            align-items: center;    
-            flex-wrap: wrap;        
+            align-items: center;  
+            flex-wrap: wrap;       
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
@@ -206,7 +206,7 @@
             }
         }
         
-        /* --- CHATBOT STÍLUSOK (ÚJ) --- */
+        /* --- CHATBOT STÍLUSOK (MÓDOSÍTVA) --- */
         .chat-box-container {
             width: 100%;
             max-width: 600px;
@@ -224,6 +224,7 @@
             margin-bottom: 10px;
             background-color: var(--color-light-gray);
             border-radius: 8px;
+            color: var(--color-dark-text); /* Szöveg szín a világos háttéren */
         }
         
         .message {
@@ -233,6 +234,7 @@
             max-width: 80%;
             display: inline-block;
             line-height: 1.4;
+            word-wrap: break-word; /* Tördelés */
         }
         
         .user-message {
@@ -240,6 +242,7 @@
             color: var(--color-white);
             float: right;
             clear: both;
+            border-bottom-right-radius: 4px;
         }
         
         .ai-message {
@@ -247,11 +250,13 @@
             color: var(--color-white);
             float: left;
             clear: both;
+            border-bottom-left-radius: 4px;
         }
         
         .input-group {
             display: flex;
             gap: 10px;
+            align-items: center; /* Függőlegesen középre igazítás */
         }
         
         #user-input {
@@ -261,7 +266,7 @@
             border-radius: 8px;
             font-family: 'Montserrat', sans-serif;
             font-size: 1em;
-            color: #343a40;
+            color: var(--color-dark-text);
         }
         
         #send-button {
@@ -273,19 +278,45 @@
             cursor: pointer;
             font-weight: 700;
             transition: background-color 0.3s;
+            width: 100px; /* Fix szélesség a töltésjelzőnek */
+            height: 40px; /* Fix magasság */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
-        #send-button:hover {
+        #send-button:hover:not(:disabled) {
             background-color: var(--color-ubuntu-orange);
         }
+
+        #send-button:disabled {
+            background-color: #A06DAB; /* Világosabb lila, jelezve a tiltást */
+            cursor: not-allowed;
+        }
         
-        .loading-dots {
-            font-size: 1.5em;
-            color: var(--color-ubuntu-orange);
-            display: none;
-            float: left;
-            clear: both;
-            padding-left: 10px;
+        /* Töltésjelző CSS (Pontok) */
+        .loading-dots-button {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            height: 100%;
+        }
+
+        .loading-dots-button span {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-white);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .loading-dots-button span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots-button span:nth-child(2) { animation-delay: -0.16s; }
+        .loading-dots-button span:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
         }
         
         /* Médialekérdezés a kisebb képernyőkhöz */
@@ -342,9 +373,8 @@
                     <input type="text" id="user-input" placeholder="Írd be a kérdésedet..." onkeypress="handleKeyPress(event)">
                     <button id="send-button" onclick="sendMessage()">Küldés</button>
                 </div>
-                <div id="loading" class="loading-dots" style="display: none;">Válasz generálása...</div>
-            </div>
-            </div>
+                </div>
+        </div>
     </div>
 
     <footer>
@@ -379,10 +409,12 @@
         const chatWindow = document.getElementById('chat-window');
         const inputElement = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
-        const loadingElement = document.getElementById('loading');
+        const originalButtonText = sendButton.innerHTML; // Eltároljuk az eredeti "Küldés" szöveget
 
         function appendMessage(sender, message) {
             const className = sender === 'user' ? 'user-message' : 'ai-message';
+            // A float: right/left miatt szükség van egy div.clearfix-re a buborékok utána, hogy a következő elem ne ússzon be
+            // A clear: both már a .message osztályban be van állítva, így nincs szükség clearfix-re, de a float-ot kell kezelni
             chatWindow.innerHTML += `<div class="${className} message">${message}</div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight; // Görgetés az aljára
         }
@@ -401,10 +433,10 @@
             appendMessage('user', message);
             inputElement.value = '';
             
-            // UI letiltása és töltőjelzés
+            // UI letiltása és töltőjelzés a gombban
             sendButton.disabled = true;
             inputElement.disabled = true;
-            loadingElement.style.display = 'block';
+            sendButton.innerHTML = `<div class="loading-dots-button"><span></span><span></span><span></span></div>`;
 
             try {
                 const response = await fetch(BACKEND_URL, {
@@ -417,8 +449,10 @@
 
                 const data = await response.json();
                 
-                if (data.error) {
-                    appendMessage('ai', `Hiba történt: ${data.error}`);
+                if (data.error || !response.ok) {
+                    // Hibás HTTP státuszkód (pl. 400, 500) vagy hibaüzenet a válaszban
+                    const errorMsg = data.error || 'Ismeretlen szerverhiba.';
+                    appendMessage('ai', `Hiba történt: ${errorMsg}`);
                 } else {
                     // Gemini válaszának megjelenítése
                     appendMessage('ai', data.reply);
@@ -432,7 +466,8 @@
             // UI visszaállítása
             sendButton.disabled = false;
             inputElement.disabled = false;
-            loadingElement.style.display = 'none';
+            sendButton.innerHTML = originalButtonText;
+            chatWindow.scrollTop = chatWindow.scrollHeight; // Újra görgetés
             inputElement.focus(); // Fókusz vissza a beviteli mezőre
         }
     </script>
