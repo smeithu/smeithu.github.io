@@ -15,6 +15,7 @@
             --color-dark-purple: #5C3566; /* Fő Alapszín (Padlizsánlila) */
             --color-ubuntu-orange: #E95420; /* Kiemelő Szín (Róka Narancs) */
             --color-white: #FFFFFF; /* Szöveg/Ikonok és Fő Doboz Háttér */
+            --color-light-gray: #f8f9fa; /* Chatbox háttér */
         }
 
         /* Alap beállítások */
@@ -164,7 +165,7 @@
             display: flex; 
             justify-content: center; 
             align-items: center;    
-            flex-wrap: wrap;       
+            flex-wrap: wrap;        
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
@@ -204,6 +205,105 @@
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 20px 5px rgba(233, 84, 32, 0.8);
             }
         }
+        
+        /* --- CHATBOT STÍLUSOK (ÚJ) --- */
+        .chat-box-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto 0;
+            border-top: 3px solid var(--color-ubuntu-orange);
+            padding-top: 20px;
+            text-align: left;
+        }
+        
+        #chat-window {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: var(--color-light-gray);
+            border-radius: 8px;
+        }
+        
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            display: inline-block;
+            line-height: 1.4;
+        }
+        
+        .user-message {
+            background-color: var(--color-dark-purple);
+            color: var(--color-white);
+            float: right;
+            clear: both;
+        }
+        
+        .ai-message {
+            background-color: var(--color-ubuntu-orange);
+            color: var(--color-white);
+            float: left;
+            clear: both;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            color: #343a40;
+        }
+        
+        #send-button {
+            background-color: var(--color-dark-purple);
+            color: var(--color-white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+        
+        #send-button:hover {
+            background-color: var(--color-ubuntu-orange);
+        }
+        
+        .loading-dots {
+            font-size: 1.5em;
+            color: var(--color-ubuntu-orange);
+            display: none;
+            float: left;
+            clear: both;
+            padding-left: 10px;
+        }
+        
+        /* Médialekérdezés a kisebb képernyőkhöz */
+        @media (max-width: 600px) {
+            .content-box {
+                padding: 40px 20px;
+            }
+            h1 {
+                font-size: 3em;
+            }
+            .github-links-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .message {
+                max-width: 95%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -231,7 +331,20 @@
                     </a>
                 </div>
             </div>
-        </div>
+            
+            <h2>🤖 SMEITHu Segéd</h2>
+            <div class="chat-box-container">
+                <div id="chat-window">
+                    <div class="ai-message message">Szia! SMEITHu Segéd vagyok. Kérdezz a Windows Server 2025 vagy az Ubuntu LTS megoldásainkról!</div>
+                </div>
+                
+                <div class="input-group">
+                    <input type="text" id="user-input" placeholder="Írd be a kérdésedet..." onkeypress="handleKeyPress(event)">
+                    <button id="send-button" onclick="sendMessage()">Küldés</button>
+                </div>
+                <div id="loading" class="loading-dots" style="display: none;">Válasz generálása...</div>
+            </div>
+            </div>
     </div>
 
     <footer>
@@ -259,5 +372,69 @@
         <p>&copy; 2025 SMEITHu. Minden jog fenntartva.</p>
     </footer>
 
+    <script>
+        // FONTOS: CSERÉLD KI EZT AZ URL-T A SAJÁT KÉSZÜLT BACKEND SZERVERED CÍMÉRE!
+        const BACKEND_URL = 'http://localhost:3000/api/chat'; 
+
+        const chatWindow = document.getElementById('chat-window');
+        const inputElement = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const loadingElement = document.getElementById('loading');
+
+        function appendMessage(sender, message) {
+            const className = sender === 'user' ? 'user-message' : 'ai-message';
+            chatWindow.innerHTML += `<div class="${className} message">${message}</div>`;
+            chatWindow.scrollTop = chatWindow.scrollHeight; // Görgetés az aljára
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        async function sendMessage() {
+            const message = inputElement.value.trim();
+            if (message === '' || sendButton.disabled) return;
+
+            // Felhasználói üzenet megjelenítése
+            appendMessage('user', message);
+            inputElement.value = '';
+            
+            // UI letiltása és töltőjelzés
+            sendButton.disabled = true;
+            inputElement.disabled = true;
+            loadingElement.style.display = 'block';
+
+            try {
+                const response = await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+                
+                if (data.error) {
+                    appendMessage('ai', `Hiba történt: ${data.error}`);
+                } else {
+                    // Gemini válaszának megjelenítése
+                    appendMessage('ai', data.reply);
+                }
+
+            } catch (error) {
+                console.error('Hiba a kérés küldésekor:', error);
+                appendMessage('ai', 'Sajnálom, nem sikerült elérni a szervert. Kérlek, ellenőrizd a beállításokat.');
+            }
+            
+            // UI visszaállítása
+            sendButton.disabled = false;
+            inputElement.disabled = false;
+            loadingElement.style.display = 'none';
+            inputElement.focus(); // Fókusz vissza a beviteli mezőre
+        }
+    </script>
 </body>
 </html>
