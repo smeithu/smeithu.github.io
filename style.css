@@ -1,0 +1,582 @@
+/* ==================================== */
+/* 0. Alapbeállítások és Színpaletta */
+/* ==================================== */
+:root {
+    --color-dark: #1a4341;      /* SÖTÉT ZÖLD */
+    --color-accent: #80c7c8;    /* Türkiz Kék */
+    --color-text: #4a4a4a;      
+    --color-light: #fefefe;     
+    --color-white: #ffffff;
+    --navbar-height: 120px;     /* MÓDOSÍTVA: NAVBAR MAGASSÁG (a logó illesztéséhez) */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', serif; 
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-light);
+}
+
+.container {
+    max-width: 1100px; 
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-dark);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif; 
+    font-weight: 700;
+}
+
+/* ==================================== */
+/* GOMBOK STÍLUSA */
+/* ==================================== */
+.cta-button {
+    background-color: var(--color-accent);
+    color: var(--color-dark) !important;
+    padding: 12px 25px;
+    border-radius: 0; 
+    font-weight: 700;
+    font-size: 1.05em;
+    transition: background-color 0.3s, opacity 0.3s;
+    white-space: nowrap;
+    border: 2px solid var(--color-accent); 
+    box-shadow: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #63b3b4;
+    opacity: 0.95; 
+}
+
+.cta-button i {
+    margin-right: 8px;
+    color: var(--color-dark); 
+}
+
+/* ==================================== */
+/* 1. Navigáció - JAVÍTVA */
+/* ==================================== */
+.navbar {
+    background-color: var(--color-white);
+    border-bottom: 3px solid var(--color-dark); 
+    height: var(--navbar-height);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* LOGÓ KONTÉNER - JAVÍTVA */
+.logo-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LOGÓ KÉP - JAVÍTVA */
+.header-logo {
+    height: 95px; /* FIX MAGASSÁG */
+    width: auto;
+    max-width: 300px; /* MAX SZÉLESSÉG */
+    object-fit: contain; /* ARÁNYOK MEGŐRZÉSE */
+    transition: all 0.3s ease;
+}
+
+/* NAV LINK-ek */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--color-dark);
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 8px 5px;
+    position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--color-accent);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* MENÜ TOGGLE */
+.menu-toggle {
+    color: var(--color-dark);
+    font-size: 1.8em;
+    cursor: pointer;
+    display: none;
+}
+
+/* ==================================== */
+/* 2. Hero Szakasz */
+/* ==================================== */
+.hero-section {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 150px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 3.5em; 
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    color: var(--color-accent);
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.hero-intro {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.hero-cta-group .cta-button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    min-width: 220px;
+}
+
+.hero-cta-group .secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+    color: var(--color-white) !important;
+}
+
+.hero-cta-group .secondary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-dark) !important;
+    border-color: var(--color-accent);
+}
+
+.hero-cta-group .secondary:hover i {
+    color: var(--color-dark); 
+}
+
+/* ==================================== */
+/* 3. Szolgáltatások Szakasz */
+/* ==================================== */
+.content-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.3em;
+    color: var(--color-dark);
+    margin-bottom: 60px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-accent);
+}
+
+.block-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+.service-block {
+    background-color: var(--color-white);
+    padding: 40px 35px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    text-align: center;
+    height: 100%;
+}
+
+.service-block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-accent);
+}
+
+.service-block i {
+    font-size: 3em;
+    color: var(--color-dark); 
+    margin-bottom: 25px;
+    display: block;
+}
+
+.service-block h3 {
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.service-block p {
+    font-size: 1em;
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+/* 4. CTA Sáv (Türkiz sáv) */
+.cta-strip {
+    background-color: var(--color-accent);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.cta-strip .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.cta-strip p {
+    color: var(--color-dark);
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+}
+
+.cta-strip .cta-button {
+    background-color: var(--color-dark); 
+    color: var(--color-accent) !important;
+    border-color: var(--color-dark);
+    font-size: 1.15em;
+    padding: 15px 35px;
+}
+
+.cta-strip .cta-button:hover {
+    background-color: #316d6a;
+    border-color: #316d6a;
+}
+
+.cta-strip .cta-button i {
+    color: var(--color-accent); 
+}
+
+/* ==================================== */
+/* 5. Kapcsolat Információk */
+/* ==================================== */
+.contact-details-section {
+    background-color: var(--color-light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.contact-item {
+    padding: 40px 35px;
+    border: 1px solid #e0e0e0;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item i {
+    font-size: 3em;
+    color: var(--color-dark); 
+    margin-bottom: 20px;
+    display: block;
+}
+
+.contact-item h3 {
+    color: var(--color-accent);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.contact-item p {
+    margin: 8px 0;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.contact-item a {
+    color: var(--color-dark);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--color-accent);
+}
+
+/* ==================================== */
+/* 6. Lábléc */
+/* ==================================== */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 40px 0 25px;
+    text-align: center;
+}
+
+.footer-legal {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85em;
+    margin-top: 20px;
+}
+
+/* ==================================== */
+/* Reszponzivitás (Mobil nézet) */
+/* ==================================== */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8em;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3em;
+    }
+    
+    .hero-intro {
+        font-size: 1.1em;
+        padding: 0 15px;
+    }
+    
+    .cta-strip .container {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .cta-strip p {
+        font-size: 1.3em;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* NAVBAR MOBIL */
+    :root {
+        --navbar-height: 110px; /* MÓDOSÍTVA: KISEBB MAGASSÁG MOBILON (A logó illesztéséhez) */
+    }
+    
+    .navbar {
+        height: var(--navbar-height);
+        padding: 0;
+    }
+    
+    /* LOGÓ MOBIL - JAVÍTVA */
+    .header-logo {
+        height: 80px; /* FIX MAGASSÁG */
+        max-width: 250px;
+    }
+    
+    /* MOBIL MENÜ */
+    .menu-toggle {
+        display: block;
+        font-size: 1.6em;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: var(--navbar-height); /* A NAV-SÁV ÚJ MAGASSÁGÁHOZ IGAZÍTVA */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-dark);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.3s ease;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-links.active {
+        max-height: 500px;
+        padding: 20px 0;
+    }
+    
+    .nav-links a {
+        color: var(--color-white);
+        text-align: center;
+        padding: 15px 20px;
+        margin: 0;
+        font-size: 1.1em;
+    }
+    
+    .nav-links a::after {
+        display: none;
+    }
+    
+    .nav-links a:hover, .nav-links a.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--color-accent);
+    }
+    
+    .nav-links .cta-button {
+        margin: 15px 20px 0;
+        width: calc(100% - 40px);
+        text-align: center;
+        background-color: var(--color-accent);
+        color: var(--color-dark) !important;
+    }
+    
+    /* HERO MOBIL */
+    .hero-section {
+        padding: 100px 0;
+    }
+    
+    .hero-title {
+        font-size: 2.3em;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2em;
+    }
+    
+    .hero-cta-group {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 15px;
+    }
+    
+    .hero-cta-group .cta-button {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    /* SZAKASZOK MOBIL */
+    .content-section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 1.9em;
+        margin-bottom: 40px;
+    }
+    
+    .block-container, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .service-block, .contact-item {
+        padding: 30px 25px;
+    }
+    
+    .cta-strip {
+        padding: 40px 0;
+    }
+    
+    .cta-strip p {
+        font-size: 1.2em;
+    }
+    
+    .cta-strip .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2em;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1em;
+    }
+    
+    .header-logo {
+        height: 60px;
+        max-width: 220px;
+    }
+    
+    .section-title {
+        font-size: 1.7em;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
