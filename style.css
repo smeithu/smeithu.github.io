@@ -246,8 +246,9 @@ h1, h2, h3 {
 }
 
 .block-container {
+    /* MÓDOSÍTVA: Két oszlopos megjelenítéshez igazítva, mivel csak 2 szolgáltatás van */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 35px;
 }
 
@@ -536,6 +537,7 @@ h1, h2, h3 {
     }
     
     .block-container, .contact-grid {
+        /* Mobil nézetben 1 oszlopos marad. */
         grid-template-columns: 1fr;
         gap: 25px;
     }
