@@ -7,7 +7,7 @@
     --color-text: #4a4a4a;      
     --color-light: #fefefe;     
     --color-white: #ffffff;
-    --navbar-height: 120px;     /* Növelve a nagyobb logóhoz */
+    --navbar-height: 130px;     /* NÖVELVE a nagyobb logóhoz */
 }
 
 * {
@@ -83,7 +83,7 @@ h1, h2, h3 {
 .navbar {
     background-color: var(--color-white);
     border-bottom: 3px solid var(--color-dark); 
-    height: var(--navbar-height);
+    height: var(--navbar-height); /* Növelt magasság */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -100,9 +100,9 @@ h1, h2, h3 {
 }
 
 .header-logo {
-    height: 95px; /* Növelt méret a jó láthatóságért */
+    height: 105px; /* NÖVELT LOGÓ MAGASSÁG */
     width: auto;
-    max-width: 300px; 
+    max-width: 350px; /* NÖVELT LOGÓ MAX SZÉLESSÉG */
     object-fit: contain; 
     transition: all 0.3s ease;
 }
@@ -163,11 +163,11 @@ h1, h2, h3 {
     font-size: 3.5em; 
     font-weight: 900;
     letter-spacing: 1px;
-    margin-bottom: 5px; /* CSÖKKENTVE a telefonszámhoz */
+    margin-bottom: 5px; 
     text-transform: uppercase;
 }
 
-/* ÚJ STÍLUS: TELEFONSZÁM A CÍM ALATT */
+/* TELEFONSZÁM A CÍM ALATT */
 .hero-phone {
     font-size: 1.8em;
     font-weight: 700;
@@ -265,7 +265,6 @@ h1, h2, h3 {
 }
 
 .block-container {
-    /* Két oszlop a két szolgáltatáshoz */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 35px;
@@ -462,7 +461,7 @@ h1, h2, h3 {
 @media (max-width: 768px) {
     /* NAVBAR MOBIL */
     :root {
-        --navbar-height: 110px; 
+        --navbar-height: 120px; /* Növelt magasság mobilra */
     }
     
     .navbar {
@@ -472,7 +471,7 @@ h1, h2, h3 {
     
     /* LOGÓ MOBIL - Növelt méret */
     .header-logo {
-        height: 80px; 
+        height: 90px; /* Növelt mobil logó méret */
         max-width: 250px;
     }
     
@@ -574,7 +573,7 @@ h1, h2, h3 {
     }
     
     .header-logo {
-        height: 60px;
+        height: 70px; /* Még nagyobb mobil logó */
         max-width: 220px;
     }
     
