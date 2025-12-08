@@ -20,7 +20,6 @@ body {
     font-family: 'Georgia', serif; 
     line-height: 1.6;
     color: var(--color-text);
-    /* Kijavítva letisztult háttérre */
     background-color: var(--color-white); 
 }
 
@@ -63,7 +62,6 @@ h1, h2, h3 {
 }
 
 .cta-button:hover {
-    /* Letisztultabb hover */
     background-color: var(--color-dark);
     color: var(--color-white) !important;
     border-color: var(--color-dark);
@@ -165,8 +163,20 @@ h1, h2, h3 {
     font-size: 3.5em; 
     font-weight: 900;
     letter-spacing: 1px;
-    margin-bottom: 15px;
+    margin-bottom: 5px; /* CSÖKKENTVE, HOGY KÖZELEBB LEGYEN A TELEFONSZÁMHOZ */
     text-transform: uppercase;
+}
+
+/* ÚJ STÍLUS: TELEFONSZÁM A CÍM ALATT */
+.hero-phone {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-accent); /* Kiemelő szín */
+    margin-bottom: 25px; /* Távolság a felirat és az alcím között */
+}
+
+.hero-phone i {
+    margin-right: 10px;
 }
 
 .hero-subtitle {
@@ -198,7 +208,6 @@ h1, h2, h3 {
     min-width: 220px;
 }
 
-/* Letisztultabb CTA gombok a Hero szekcióban */
 .hero-cta-group .primary {
     background-color: var(--color-accent);
     color: var(--color-dark) !important;
@@ -232,7 +241,6 @@ h1, h2, h3 {
 .content-section {
     padding: 80px 0;
     text-align: center;
-    /* Letisztult háttér */
     background-color: var(--color-white); 
 }
 
@@ -263,7 +271,7 @@ h1, h2, h3 {
 }
 
 .service-block {
-    background-color: var(--color-light); /* Nagyon világos szürke háttér */
+    background-color: var(--color-light); 
     padding: 40px 35px;
     border: 1px solid #e0e0e0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -300,7 +308,6 @@ h1, h2, h3 {
 
 /* 4. CTA Sáv */
 .cta-strip {
-    /* MÓDOSÍTVA: Sötétzöld háttér a türkiz helyett */
     background-color: var(--color-dark);
     padding: 50px 0;
     text-align: center;
@@ -314,7 +321,7 @@ h1, h2, h3 {
 }
 
 .cta-strip p {
-    color: var(--color-white); /* Fehér szöveg a sötét háttéren */
+    color: var(--color-white); 
     font-size: 1.4em;
     font-weight: 700;
     margin: 0;
@@ -322,7 +329,6 @@ h1, h2, h3 {
 }
 
 .cta-strip .cta-button {
-    /* MÓDOSÍTVA: Kiemelés türkiz színnel a sötétzöld háttérből */
     background-color: var(--color-accent); 
     color: var(--color-dark) !important;
     border-color: var(--color-accent);
@@ -343,7 +349,6 @@ h1, h2, h3 {
 /* 5. Kapcsolat Információk */
 /* ==================================== */
 .contact-details-section {
-    /* Kijavítva: fehér háttér a letisztultabb megjelenésért */
     background-color: var(--color-white); 
 }
 
@@ -356,7 +361,7 @@ h1, h2, h3 {
 .contact-item {
     padding: 40px 35px;
     border: 1px solid #e0e0e0;
-    background-color: var(--color-light); /* Nagyon világos szürke háttér */
+    background-color: var(--color-light); 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     text-align: center;
@@ -430,6 +435,10 @@ h1, h2, h3 {
     
     .hero-subtitle {
         font-size: 1.3em;
+    }
+    
+    .hero-phone {
+        font-size: 1.5em;
     }
     
     .hero-intro {
@@ -520,6 +529,14 @@ h1, h2, h3 {
     /* HERO MOBIL */
     .hero-section {
         padding: 100px 0;
+    }
+    
+    .hero-title {
+        font-size: 2.3em;
+    }
+    
+    .hero-phone {
+        font-size: 1.4em;
     }
     
     /* SZAKASZOK MOBIL */
