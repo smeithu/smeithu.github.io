@@ -7,7 +7,7 @@
     --color-text: #4a4a4a;      
     --color-light: #fefefe;     
     --color-white: #ffffff;
-    --navbar-height: 85px;     /* JAVÍTVA: Optimalizált magasság a nagyobb logóhoz */
+    --navbar-height: 90px;     /* OPTIMALIZÁLT MAGASSÁG */
 }
 
 * {
@@ -72,7 +72,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* 1. Navigáció - TELJESEN JAVÍTVA */
+/* 1. Navigáció - LOGÓ JAVÍTÁS */
 /* ==================================== */
 .navbar {
     background-color: var(--color-white);
@@ -83,7 +83,6 @@ h1, h2, h3 {
     z-index: 1000;
     display: flex;
     align-items: center;
-    padding: 0;
 }
 
 .navbar .container {
@@ -92,31 +91,29 @@ h1, h2, h3 {
     align-items: center;
     height: 100%;
     width: 100%;
-    padding: 0 25px;
 }
 
-/* LOGÓ KONTÉNER - JAVÍTVA */
-.logo-image {
+/* LOGÓ WRAPPER - ÚJ */
+.logo-wrapper {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 5px 0;
 }
 
-/* LOGÓ KÉP - NAGYOBB ÉS JÓL LÁTHATÓ */
+/* LOGÓ KÉP - NAGYOBB MÉRET */
 .header-logo {
-    height: 70px; /* JAVÍTVA: Nagyobb magasság */
+    height: 65px; /* NAGYOBB MAGASSÁG */
     width: auto;
-    max-width: 320px; /* JAVÍTVA: Szélesebb max szélesség */
+    max-width: 300px;
     object-fit: contain;
     transition: all 0.3s ease;
 }
 
-/* NAV LINK-ek - jobb elrendezés */
+/* NAV LINK-ek */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-links a {
@@ -125,7 +122,6 @@ h1, h2, h3 {
     font-size: 1.05em;
     padding: 8px 5px;
     position: relative;
-    white-space: nowrap;
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -147,13 +143,6 @@ h1, h2, h3 {
     width: 100%;
 }
 
-/* Árajánlat gomb külön stílus */
-.nav-links .cta-button {
-    padding: 10px 20px;
-    margin-left: 5px;
-    font-size: 1em;
-}
-
 /* MENÜ TOGGLE */
 .menu-toggle {
     color: var(--color-dark);
@@ -163,7 +152,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* 2. Hero Szakasz */
+/* 2. Hero Szakasz (MARAD VÁLTOZATLAN) */
 /* ==================================== */
 .hero-section {
     background-color: var(--color-dark);
@@ -228,7 +217,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* 3. Szolgáltatások Szakasz */
+/* 3. Szolgáltatások Szakasz (MARAD) */
 /* ==================================== */
 .content-section {
     padding: 80px 0;
@@ -337,7 +326,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* 5. Kapcsolat Információk */
+/* 5. Kapcsolat Információk (MARAD) */
 /* ==================================== */
 .contact-details-section {
     background-color: var(--color-light);
@@ -394,7 +383,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* 6. Lábléc */
+/* 6. Lábléc (MARAD VÁLTOZATLAN) */
 /* ==================================== */
 .footer {
     background-color: var(--color-dark);
@@ -416,7 +405,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* Reszponzivitás (Mobil nézet) - JAVÍTVA */
+/* Reszponzivitás (Mobil nézet) - LOGÓ JAVÍTÁS */
 /* ==================================== */
 @media (max-width: 992px) {
     .hero-title {
@@ -446,7 +435,7 @@ h1, h2, h3 {
 @media (max-width: 768px) {
     /* NAVBAR MOBIL - JAVÍTVA */
     :root {
-        --navbar-height: 75px; /* Optimalizált mobil magasság */
+        --navbar-height: 80px; /* KISEBB MOBIL MAGASSÁG */
     }
     
     .navbar {
@@ -456,8 +445,8 @@ h1, h2, h3 {
     
     /* LOGÓ MOBIL - JAVÍTVA */
     .header-logo {
-        height: 55px; /* Arányosan kisebb mobil méret */
-        max-width: 280px;
+        height: 55px; /* ARÁNYOS MOBIL MÉRET */
+        max-width: 250px;
     }
     
     /* MOBIL MENÜ */
@@ -577,9 +566,8 @@ h1, h2, h3 {
         font-size: 1.1em;
     }
     
-    /* LOGÓ EXTRA KICSI KÉPERNYŐKÖN */
     .header-logo {
-        height: 48px;
+        height: 50px; /* EXTRA KICSI KÉPERNYŐKÖN */
         max-width: 220px;
     }
     
@@ -592,20 +580,6 @@ h1, h2, h3 {
     }
     
     :root {
-        --navbar-height: 70px; /* Kisebb extra kis képernyőkön */
+        --navbar-height: 75px; /* KISEBB EXTRA KIS KÉPERNYŐKÖN */
     }
-}
-
-/* ==================================== */
-/* EXTRA JAVÍTÁS: Biztosítja a tökéletes középre igazítást */
-/* ==================================== */
-.navbar .container {
-    align-items: center !important;
-}
-
-.logo-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
 }
