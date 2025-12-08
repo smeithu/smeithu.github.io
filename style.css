@@ -2,12 +2,12 @@
 /* 0. Alapbeállítások és Színpaletta */
 /* ==================================== */
 :root {
-    --color-dark: #1a4341;      /* SÖTÉT ZÖLD (Fő szín) */
-    --color-accent: #80c7c8;    /* Türkiz Kék (Kiemelő szín) */
+    --color-dark: #1a4341;      /* SÖTÉT ZÖLD */
+    --color-accent: #80c7c8;    /* Türkiz Kék */
     --color-text: #4a4a4a;      
     --color-light: #fefefe;     
     --color-white: #ffffff;
-    --navbar-height: 130px;     /* NÖVELVE a nagyobb logóhoz */
+    --navbar-height: 85px;     /* JAVÍTVA: Optimalizált magasság a nagyobb logóhoz */
 }
 
 * {
@@ -20,7 +20,7 @@ body {
     font-family: 'Georgia', serif; 
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-white); 
+    background-color: var(--color-light);
 }
 
 .container {
@@ -62,15 +62,9 @@ h1, h2, h3 {
 }
 
 .cta-button:hover {
-    background-color: var(--color-dark);
-    color: var(--color-white) !important;
-    border-color: var(--color-dark);
-    opacity: 1; 
+    background-color: #63b3b4;
+    opacity: 0.95; 
 }
-.cta-button:hover i {
-    color: var(--color-white); 
-}
-
 
 .cta-button i {
     margin-right: 8px;
@@ -78,17 +72,18 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* 1. Navigáció */
+/* 1. Navigáció - TELJESEN JAVÍTVA */
 /* ==================================== */
 .navbar {
     background-color: var(--color-white);
     border-bottom: 3px solid var(--color-dark); 
-    height: var(--navbar-height); /* Növelt magasság */
+    height: var(--navbar-height);
     position: sticky;
     top: 0;
     z-index: 1000;
     display: flex;
     align-items: center;
+    padding: 0;
 }
 
 .navbar .container {
@@ -97,20 +92,31 @@ h1, h2, h3 {
     align-items: center;
     height: 100%;
     width: 100%;
+    padding: 0 25px;
 }
 
+/* LOGÓ KONTÉNER - JAVÍTVA */
+.logo-image {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 5px 0;
+}
+
+/* LOGÓ KÉP - NAGYOBB ÉS JÓL LÁTHATÓ */
 .header-logo {
-    height: 105px; /* NÖVELT LOGÓ MAGASSÁG */
+    height: 70px; /* JAVÍTVA: Nagyobb magasság */
     width: auto;
-    max-width: 350px; /* NÖVELT LOGÓ MAX SZÉLESSÉG */
-    object-fit: contain; 
+    max-width: 320px; /* JAVÍTVA: Szélesebb max szélesség */
+    object-fit: contain;
     transition: all 0.3s ease;
 }
 
+/* NAV LINK-ek - jobb elrendezés */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-links a {
@@ -119,6 +125,7 @@ h1, h2, h3 {
     font-size: 1.05em;
     padding: 8px 5px;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -140,6 +147,14 @@ h1, h2, h3 {
     width: 100%;
 }
 
+/* Árajánlat gomb külön stílus */
+.nav-links .cta-button {
+    padding: 10px 20px;
+    margin-left: 5px;
+    font-size: 1em;
+}
+
+/* MENÜ TOGGLE */
 .menu-toggle {
     color: var(--color-dark);
     font-size: 1.8em;
@@ -151,7 +166,7 @@ h1, h2, h3 {
 /* 2. Hero Szakasz */
 /* ==================================== */
 .hero-section {
-    background-color: var(--color-dark); 
+    background-color: var(--color-dark);
     color: var(--color-white);
     padding: 150px 0;
     text-align: center;
@@ -163,20 +178,8 @@ h1, h2, h3 {
     font-size: 3.5em; 
     font-weight: 900;
     letter-spacing: 1px;
-    margin-bottom: 5px; 
+    margin-bottom: 15px;
     text-transform: uppercase;
-}
-
-/* TELEFONSZÁM A CÍM ALATT */
-.hero-phone {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: var(--color-accent); 
-    margin-bottom: 25px; 
-}
-
-.hero-phone i {
-    margin-right: 10px;
 }
 
 .hero-subtitle {
@@ -208,17 +211,6 @@ h1, h2, h3 {
     min-width: 220px;
 }
 
-.hero-cta-group .primary {
-    background-color: var(--color-accent);
-    color: var(--color-dark) !important;
-    border: 2px solid var(--color-accent);
-}
-.hero-cta-group .primary:hover {
-    background-color: var(--color-white);
-    border-color: var(--color-white);
-}
-
-
 .hero-cta-group .secondary {
     background-color: transparent;
     border: 2px solid var(--color-white);
@@ -241,7 +233,6 @@ h1, h2, h3 {
 .content-section {
     padding: 80px 0;
     text-align: center;
-    background-color: var(--color-white); 
 }
 
 .section-title {
@@ -271,7 +262,7 @@ h1, h2, h3 {
 }
 
 .service-block {
-    background-color: var(--color-light); 
+    background-color: var(--color-white);
     padding: 40px 35px;
     border: 1px solid #e0e0e0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -306,9 +297,9 @@ h1, h2, h3 {
     line-height: 1.7;
 }
 
-/* 4. CTA Sáv */
+/* 4. CTA Sáv (Türkiz sáv) */
 .cta-strip {
-    background-color: var(--color-dark);
+    background-color: var(--color-accent);
     padding: 50px 0;
     text-align: center;
 }
@@ -321,7 +312,7 @@ h1, h2, h3 {
 }
 
 .cta-strip p {
-    color: var(--color-white); 
+    color: var(--color-dark);
     font-size: 1.4em;
     font-weight: 700;
     margin: 0;
@@ -329,27 +320,27 @@ h1, h2, h3 {
 }
 
 .cta-strip .cta-button {
-    background-color: var(--color-accent); 
-    color: var(--color-dark) !important;
-    border-color: var(--color-accent);
+    background-color: var(--color-dark); 
+    color: var(--color-accent) !important;
+    border-color: var(--color-dark);
     font-size: 1.15em;
     padding: 15px 35px;
 }
 
 .cta-strip .cta-button:hover {
-    background-color: var(--color-white);
-    border-color: var(--color-white);
+    background-color: #316d6a;
+    border-color: #316d6a;
 }
 
 .cta-strip .cta-button i {
-    color: var(--color-dark); 
+    color: var(--color-accent); 
 }
 
 /* ==================================== */
 /* 5. Kapcsolat Információk */
 /* ==================================== */
 .contact-details-section {
-    background-color: var(--color-white); 
+    background-color: var(--color-light);
 }
 
 .contact-grid {
@@ -361,7 +352,7 @@ h1, h2, h3 {
 .contact-item {
     padding: 40px 35px;
     border: 1px solid #e0e0e0;
-    background-color: var(--color-light); 
+    background-color: var(--color-white);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     text-align: center;
@@ -371,7 +362,6 @@ h1, h2, h3 {
 .contact-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-accent);
 }
 
 .contact-item i {
@@ -426,7 +416,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* Reszponzivitás (Mobil nézet) */
+/* Reszponzivitás (Mobil nézet) - JAVÍTVA */
 /* ==================================== */
 @media (max-width: 992px) {
     .hero-title {
@@ -435,10 +425,6 @@ h1, h2, h3 {
     
     .hero-subtitle {
         font-size: 1.3em;
-    }
-    
-    .hero-phone {
-        font-size: 1.5em;
     }
     
     .hero-intro {
@@ -452,16 +438,15 @@ h1, h2, h3 {
     }
     
     .cta-strip p {
-        color: var(--color-white); 
         font-size: 1.3em;
         text-align: center;
     }
 }
 
 @media (max-width: 768px) {
-    /* NAVBAR MOBIL */
+    /* NAVBAR MOBIL - JAVÍTVA */
     :root {
-        --navbar-height: 120px; /* Növelt magasság mobilra */
+        --navbar-height: 75px; /* Optimalizált mobil magasság */
     }
     
     .navbar {
@@ -469,10 +454,10 @@ h1, h2, h3 {
         padding: 0;
     }
     
-    /* LOGÓ MOBIL - Növelt méret */
+    /* LOGÓ MOBIL - JAVÍTVA */
     .header-logo {
-        height: 90px; /* Növelt mobil logó méret */
-        max-width: 250px;
+        height: 55px; /* Arányosan kisebb mobil méret */
+        max-width: 280px;
     }
     
     /* MOBIL MENÜ */
@@ -483,7 +468,7 @@ h1, h2, h3 {
     
     .nav-links {
         position: fixed;
-        top: var(--navbar-height); 
+        top: var(--navbar-height);
         left: 0;
         width: 100%;
         background-color: var(--color-dark);
@@ -535,8 +520,19 @@ h1, h2, h3 {
         font-size: 2.3em;
     }
     
-    .hero-phone {
-        font-size: 1.4em;
+    .hero-subtitle {
+        font-size: 1.2em;
+    }
+    
+    .hero-cta-group {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 15px;
+    }
+    
+    .hero-cta-group .cta-button {
+        width: 100%;
+        min-width: auto;
     }
     
     /* SZAKASZOK MOBIL */
@@ -544,9 +540,18 @@ h1, h2, h3 {
         padding: 60px 0;
     }
     
+    .section-title {
+        font-size: 1.9em;
+        margin-bottom: 40px;
+    }
+    
     .block-container, .contact-grid {
         grid-template-columns: 1fr;
         gap: 25px;
+    }
+    
+    .service-block, .contact-item {
+        padding: 30px 25px;
     }
     
     .cta-strip {
@@ -572,8 +577,9 @@ h1, h2, h3 {
         font-size: 1.1em;
     }
     
+    /* LOGÓ EXTRA KICSI KÉPERNYŐKÖN */
     .header-logo {
-        height: 70px; /* Még nagyobb mobil logó */
+        height: 48px;
         max-width: 220px;
     }
     
@@ -584,4 +590,22 @@ h1, h2, h3 {
     .container {
         padding: 0 15px;
     }
+    
+    :root {
+        --navbar-height: 70px; /* Kisebb extra kis képernyőkön */
+    }
+}
+
+/* ==================================== */
+/* EXTRA JAVÍTÁS: Biztosítja a tökéletes középre igazítást */
+/* ==================================== */
+.navbar .container {
+    align-items: center !important;
+}
+
+.logo-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
