@@ -2,12 +2,12 @@
 /* 0. Alapbeállítások és Színpaletta */
 /* ==================================== */
 :root {
-    --color-dark: #1a4341;      /* SÖTÉT ZÖLD */
-    --color-accent: #80c7c8;    /* Türkiz Kék */
-    --color-text: #4a4a4a;      
-    --color-light: #fefefe;     
+    --color-dark: #1a4341;
+    --color-accent: #80c7c8;
+    --color-text: #4a4a4a;
+    --color-light: #fefefe;
     --color-white: #ffffff;
-    --navbar-height: 90px;     /* OPTIMALIZÁLT MAGASSÁG */
+    --navbar-height: 100px; /* NÖVELVE */
 }
 
 * {
@@ -17,14 +17,14 @@
 }
 
 body {
-    font-family: 'Georgia', serif; 
+    font-family: 'Georgia', serif;
     line-height: 1.6;
     color: var(--color-text);
     background-color: var(--color-light);
 }
 
 .container {
-    max-width: 1100px; 
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 25px;
 }
@@ -40,7 +40,7 @@ a:hover {
 }
 
 h1, h2, h3 {
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Arial', sans-serif;
     font-weight: 700;
 }
 
@@ -51,32 +51,32 @@ h1, h2, h3 {
     background-color: var(--color-accent);
     color: var(--color-dark) !important;
     padding: 12px 25px;
-    border-radius: 0; 
+    border-radius: 0;
     font-weight: 700;
     font-size: 1.05em;
     transition: background-color 0.3s, opacity 0.3s;
     white-space: nowrap;
-    border: 2px solid var(--color-accent); 
+    border: 2px solid var(--color-accent);
     box-shadow: none;
     display: inline-block;
 }
 
 .cta-button:hover {
     background-color: #63b3b4;
-    opacity: 0.95; 
+    opacity: 0.95;
 }
 
 .cta-button i {
     margin-right: 8px;
-    color: var(--color-dark); 
+    color: var(--color-dark);
 }
 
 /* ==================================== */
-/* 1. Navigáció - LOGÓ JAVÍTÁS */
+/* 1. Navigáció - LOGÓ NAGYOBB */
 /* ==================================== */
 .navbar {
     background-color: var(--color-white);
-    border-bottom: 3px solid var(--color-dark); 
+    border-bottom: 3px solid var(--color-dark);
     height: var(--navbar-height);
     position: sticky;
     top: 0;
@@ -93,20 +93,19 @@ h1, h2, h3 {
     width: 100%;
 }
 
-/* LOGÓ WRAPPER - ÚJ */
-.logo-wrapper {
+/* LOGÓ KÉP - NAGYOBB */
+.header-logo {
+    height: 80px; /* NAGYOBB */
+    width: auto;
+    max-width: 350px; /* SZÉLESEBB */
+    object-fit: contain;
+}
+
+/* LOGÓ LINK - KÖZÉPRE IGAZÍTÁS */
+.logo-image {
     display: flex;
     align-items: center;
     height: 100%;
-}
-
-/* LOGÓ KÉP - NAGYOBB MÉRET */
-.header-logo {
-    height: 65px; /* NAGYOBB MAGASSÁG */
-    width: auto;
-    max-width: 300px;
-    object-fit: contain;
-    transition: all 0.3s ease;
 }
 
 /* NAV LINK-ek */
@@ -152,7 +151,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* 2. Hero Szakasz (MARAD VÁLTOZATLAN) */
+/* 2. Hero Szakasz */
 /* ==================================== */
 .hero-section {
     background-color: var(--color-dark);
@@ -164,7 +163,7 @@ h1, h2, h3 {
 }
 
 .hero-title {
-    font-size: 3.5em; 
+    font-size: 3.5em;
     font-weight: 900;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -213,11 +212,11 @@ h1, h2, h3 {
 }
 
 .hero-cta-group .secondary:hover i {
-    color: var(--color-dark); 
+    color: var(--color-dark);
 }
 
 /* ==================================== */
-/* 3. Szolgáltatások Szakasz (MARAD) */
+/* 3. Szolgáltatások Szakasz */
 /* ==================================== */
 .content-section {
     padding: 80px 0;
@@ -269,7 +268,7 @@ h1, h2, h3 {
 
 .service-block i {
     font-size: 3em;
-    color: var(--color-dark); 
+    color: var(--color-dark);
     margin-bottom: 25px;
     display: block;
 }
@@ -309,7 +308,7 @@ h1, h2, h3 {
 }
 
 .cta-strip .cta-button {
-    background-color: var(--color-dark); 
+    background-color: var(--color-dark);
     color: var(--color-accent) !important;
     border-color: var(--color-dark);
     font-size: 1.15em;
@@ -322,11 +321,11 @@ h1, h2, h3 {
 }
 
 .cta-strip .cta-button i {
-    color: var(--color-accent); 
+    color: var(--color-accent);
 }
 
 /* ==================================== */
-/* 5. Kapcsolat Információk (MARAD) */
+/* 5. Kapcsolat Információk */
 /* ==================================== */
 .contact-details-section {
     background-color: var(--color-light);
@@ -355,7 +354,7 @@ h1, h2, h3 {
 
 .contact-item i {
     font-size: 3em;
-    color: var(--color-dark); 
+    color: var(--color-dark);
     margin-bottom: 20px;
     display: block;
 }
@@ -383,7 +382,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* 6. Lábléc (MARAD VÁLTOZATLAN) */
+/* 6. Lábléc */
 /* ==================================== */
 .footer {
     background-color: var(--color-dark);
@@ -405,7 +404,7 @@ h1, h2, h3 {
 }
 
 /* ==================================== */
-/* Reszponzivitás (Mobil nézet) - LOGÓ JAVÍTÁS */
+/* Reszponzivitás (Mobil nézet) */
 /* ==================================== */
 @media (max-width: 992px) {
     .hero-title {
@@ -433,9 +432,9 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px) {
-    /* NAVBAR MOBIL - JAVÍTVA */
+    /* NAVBAR MOBIL */
     :root {
-        --navbar-height: 80px; /* KISEBB MOBIL MAGASSÁG */
+        --navbar-height: 90px;
     }
     
     .navbar {
@@ -443,10 +442,10 @@ h1, h2, h3 {
         padding: 0;
     }
     
-    /* LOGÓ MOBIL - JAVÍTVA */
+    /* LOGÓ MOBIL */
     .header-logo {
-        height: 55px; /* ARÁNYOS MOBIL MÉRET */
-        max-width: 250px;
+        height: 65px;
+        max-width: 300px;
     }
     
     /* MOBIL MENÜ */
@@ -567,8 +566,8 @@ h1, h2, h3 {
     }
     
     .header-logo {
-        height: 50px; /* EXTRA KICSI KÉPERNYŐKÖN */
-        max-width: 220px;
+        height: 55px;
+        max-width: 250px;
     }
     
     .section-title {
@@ -580,6 +579,6 @@ h1, h2, h3 {
     }
     
     :root {
-        --navbar-height: 75px; /* KISEBB EXTRA KIS KÉPERNYŐKÖN */
+        --navbar-height: 85px;
     }
 }
